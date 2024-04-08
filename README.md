@@ -1,14 +1,16 @@
-## Concepts
+# Concepts & Definitions
 
-**_LLM (Large Language Model)_** - Refers to the neural network used for natural language, such as text2text generation(gpt-4), text classification or sentiment analysis(BERT).
+**_LLM (Large Language Model)_** - Refers to the neural network (a type of model inspired on the human brain) used for natural language, such as text2text generation(gpt-4), text classification or sentiment analysis(BERT). The main idea behind it is a text completion mechanism with high accuracy (ideally) for predicting the next word or set of words in a given context.
 
-**_Diffusion Model_** - Image generation models that apply noise to an image and use a neural network to denoise it (Stable diffusion, Dall-e), it’s a complex topic but TLDR: depending on the sampler used the image won't necessarily converge. Note that those models can (and should) also receive a text input to guide the denoising.
+[https://en.wikipedia.org/wiki/Large_language_model](https://en.wikipedia.org/wiki/Large_language_model)
+
+**_Diffusion Model_** - Image generation models that apply noise to an image and use a neural network to denoise it (Stable diffusion, Dall-e), it’s a complex topic but, TLDR: depending on the sampler and parameters used the image won't necessarily converge. Note that those models can (and should) also receive a text input to guide the denoising.
 
 [https://arxiv.org/html/2312.14977v1](https://arxiv.org/html/2312.14977v1)
 
 **_Inference_** - The process of running data into a model to get an output, depending on the type and architecture of said model the output is translated into text(gpt-4,Claude,mistral), images(stable diffusion,Midjourney,gpt-4-vision), sound(XTTS), etc. 
 
-**_Instruct model_** - Refers to a base LLM trained with pairs of questions/instructions - answers to enhance the model’s capability of providing a valid or coherent response to a given question or instruction (mixtral-instruct,gpt-3.5-turbo-instruct,gpt-4).
+**_Instruct model_** - Refers to a base LLM trained or fine-tuned with pairs of questions/instructions - answers to enhance the model’s capability of providing a valid or coherent response to a given question or instruction (mixtral-instruct,gpt-3.5-turbo-instruct,gpt-4). Note that this is just nomenclature for the training data used, there’s also chat models and others but most don’t really specify it.
 
 **_Transformers_** - Base architecture of the contemporary neural networks. Based on Google's research paper from 2017: 
 
@@ -16,9 +18,9 @@
 
 [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
 
-**_MoE (Mixture of Experts)_** - The latest architecture of transformer-based LLMs, consists of a mix of several smaller models (experts) where the input data gets routed through the most capable of the experts for a given task. Mixtral and GPT-4 use this architecture.
+**_MoE (Mixture of Experts)_** - The latest architecture of transformer-based LLMs, consists of a mix of several smaller models (experts) where the input data gets routed through the most capable of the experts for a given task. Mixtral and GPT-4(allegedly) use this architecture.
 
-**_LoRA (Low-Rank Adaptation)_** - Refers to the technique or the actual trained weights that can be applied to a larger model in a much more cost efficient way, usually for fine tuning or applying styles.
+**_LoRA (Low-Rank Adaptation)_** - Refers to the technique, or the actual trained weights, that can be applied to a larger model in a much more cost efficient way, usually for fine tuning or applying styles.
 
 [https://huggingface.co/docs/diffusers/main/en/training/lora](https://huggingface.co/docs/diffusers/main/en/training/lora)
 
@@ -26,13 +28,13 @@
 
 **_Parameters_** - Basically the model size. It can mean different stuff but mostly the weights of the model, which are the connections between the data in the dataset the model was trained on. The more it has the more complex the model is, which usually means (not necessarily tho) better reasoning and understanding of the input. Usual open source model sizes are 7, 11, 13, 30 or 70 billion parameters. For reference LLama2 has 70b and gpt-3.5 180b. Note that while size matters, the quality of the training data and method used for it matter significantly more, which can make bigger models obsolete due to the speed at which the technology is advancing.
 
-**_Token_** - The most basic form of a word that the model can understand and translate into its code, usually (but not really) just the lexical root of a word without its differentiable morphemes.
+**_Token_** - The most basic form of a word that the model can understand and translate into its code, usually (but not really) just the lexical root of a word without its differentiable morphemes. Depends entirely on the model used and its tokenizer.
 
 **_Context_** - The amount of data(in tokens) provided to the model to get a response from. The more context the more VRAM the model needs to run. For reference LLama2 has native 4k (4096) context. There are ways to artificially increase context size but, as it’s the case for image models, using higher context/resolutions that what the model was trained for may cause undesirable results.
 
 **_Prompt_** - A text that directs the LLM to generate a specific response, often an instruction or a question provided in the context. 
 
-Prompts can become complex and some can try to force the LLM to behave in certain ways that might enhance the responses, make them more accurate or simply roleplay in a specific scenario for example. There are a lot of resources about prompt engineering around the community for any kind of use case.
+Prompts can become complex and some can try to force the LLM to behave in certain ways that might enhance the responses, make them significantly more accurate or simply roleplay in a specific scenario for example. There are a lot of resources about prompt engineering around the community for any kind of use case.
 
 **_Embeddings_** - A way to store data that the model can understand, usually used by the model or as part of the workflow, for example to replace larger prompts or parts of a prompt.
 
@@ -49,18 +51,18 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 [https://huggingface.co/docs/transformers/index](https://huggingface.co/docs/transformers/index)
 
 
-## Popular Models
+# Popular Models
 
 **[Text Generation]**
 
 
 
 * [GPT-4](https://chat.openai.com/chat): 
-    * [OpenAI](https://openai.com/)’s Leading LLM, sadly quite censored lately, with heavy guardrails for even slightly controversial topics.
+    * [OpenAI](https://openai.com/)’s Leading LLM, sadly quite censored lately, with guardrails for controversial topics.
 * [Claude3](https://claude.ai/chats): 
-    * [Anthropic](https://www.anthropic.com/)’s new LLM, basically the only real competition GPT-4 has besides mistral-large. Many variants, and the smaller models are decently smart and affordable through API.
+    * [Anthropic](https://www.anthropic.com/)’s new LLM, apparently the only real competition GPT-4 has besides mistral-large. Couple variants, and the smaller models are decently smart and affordable through API.
 * [LLama2](https://huggingface.co/chat/): 
-    * [Meta](https://llama.meta.com/)’s open source model, it’s starting to show its age with the release of mistral/mixtral based models.
+    * [Meta](https://llama.meta.com/)’s open sourced model, it’s starting to show its age with the release of mistral/mixtral based models.
 * [Mistral-7b](https://huggingface.co/chat/): 
     * Small and decently smart open source model developed by [mistral.ai](https://mistral.ai), it’s actually very smart for its size and has a ton of community variants and flavors for many use cases.
 * [Mixtral-8x7b](https://huggingface.co/chat/): 
@@ -132,9 +134,9 @@ Check the specific model/finetune page for optimal resolutions.
     * [https://huggingface.co/collections/openai/whisper-release-6501bba2cf999715fd953013](https://huggingface.co/collections/openai/whisper-release-6501bba2cf999715fd953013)
 
 
-## Software
+# Software
 
-The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source.
+The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
 
 **[Text Generation] **
 
@@ -147,7 +149,7 @@ The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the 
 * [Oobabooga’s text-generation-ui](https://github.com/oobabooga/text-generation-webui): 
     * The most versatile and complete, integrates llama.cpp and Exllama which are the best inference libraries for consumer hardware at the moment. It has several extensions and an API server.
 * [SillyTavern](https://sillytavernai.com/): 
-    * An excellent <span style="text-decoration:underline;">frontend-only</span> solution for anything LLM related. While heavily focused on chat/roleplay, it offers great flexibility and lots of integrations with all kinds of services and backends, be it local or not. Also has modules to integrate web search, speech recognition, text-to-speech and image generation backends.
+    * An excellent frontend-only solution for anything LLM related. While heavily focused on chat/roleplay, it offers great flexibility and lots of integrations with all kinds of services and backends, be it local or not. Also has modules to integrate web search, speech recognition, text-to-speech and image generation backends.
     * Scripts for easy installation: [https://github.com/SillyTavern/SillyTavern-Launcher](https://github.com/SillyTavern/SillyTavern-Launcher)
 * [RisuAI](https://risuai.xyz/):
     * Another frontend-only for LLMs, this one is solely focused on roleplay/chat and doesn't have as many extensions.
@@ -167,7 +169,7 @@ The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the 
 * [Automatic1111’s stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui): 
     * The most popular solution for running SD and adjacent models, extremely versatile with tons of extensions, even has an extension to use it in Photoshop.
 * [ConfyUI](https://github.com/comfyanonymous/ComfyUI):
-    * Better workflow than A1111’s but less popular and versatile, A1111’s also has an extension for it.
+    * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
 
 **[Text to Speech Generation]**
 
@@ -188,7 +190,7 @@ The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the 
 *Note that most of this software can be run on google colab free tier, and there are several already configured colabs around the community.
 
 
-## Hardware requirements
+# Hardware requirements
 
 For text inference a 12GB+ GPU is advised if you plan to run anything more than 7b models with high quantization or large context windows.
 
@@ -209,8 +211,14 @@ Training & Fine Tuning takes more than 2-4 times the amount of VRAM than inferen
 
 All that said, VRAM speed is king if everything fits in it.
 
+**Software requirements (W11)**
 
-## Useful docs & guides
+Most of the projects for local deployment have easy to install scripts and documentation, but for some of the backend solutions or their extensions it’s necessary to install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and the [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) (ST Extras, facechain, etc…). Check the requirements for each project’s dependencies before trying to run them to avoid issues.
+
+Note that most of these projects rely on specific [python environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) created through [conda](https://docs.anaconda.com/free/miniconda/) and, as with any software in development, bugs and issues are expected. It is recommended to be able to manage those environments in case some dependency or software doesn't get correctly installed or configured by the install scripts, so a [very basic knowledge of both python and conda is required](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+
+
+# Useful docs & guides
 
 **General Prompt Engineering**
 
@@ -222,7 +230,7 @@ There is a lot to prompt engineering for both professional and entertainment use
 
 **Chatbot making guides for roleplay**
 
-This section can get very convoluted as storytelling and literary writing is a complex thing for LLMs (even for humans) and heavily depends on the model used, and the large context windows that are used in this use case affect the responses a lot. A rule of the thumb is to think about the models as text completion mechanisms, and for example if you let the writing style get dull over time, the context that you provide will be that same dull chat history and the model will provide a similar response, degrading the quality quickly, same for the repetition issues and such.
+This section can get very convoluted as storytelling and literary writing is a complex thing for LLMs (even for humans) and heavily depends on the model used, also the large context windows that are used in this use case affect the responses a lot. A rule of the thumb is to think about the models as what they are, text completion mechanisms, and for example if you let the writing style get dull over time, the context that you provide will be that same dull chat history and the model will provide a similar response, degrading the quality quickly, same for the repetition issues and such.
 
 There are several ways to instruct a model about performing as a character, some of them consider the fact that those models often are trained with code, and so they use some JSONish or List (Boostyle/W++/Plists) formatting, others try to enforce the writing style of the bot with examples (Ali:chat).
 
@@ -237,7 +245,7 @@ There are several ways to instruct a model about performing as a character, some
 [https://wikia.schneedc.com/bot-creation/trappu/introduction](https://wikia.schneedc.com/bot-creation/trappu/introduction) - Ali:chat + Plists (probably the best general approach).
 
 
-## Resources
+# Resources
 
 **Communities**
 
@@ -283,7 +291,7 @@ There are several ways to instruct a model about performing as a character, some
 
 [https://www.together.ai/pricing](https://www.together.ai/pricing)
 
-**Compute services** - For renting GPU computing and other services.
+**Compute services** - For renting GPU computing services and alike.
 
 [https://vast.ai/](https://vast.ai/)
 
@@ -295,7 +303,7 @@ There are several ways to instruct a model about performing as a character, some
 
 [https://www.paperspace.com/](https://www.paperspace.com/)
 
-**Google Colab examples**
+**Google Colab examples **- Beware of the captchas
 
 [Official Whisper](https://colab.research.google.com/github/openai/whisper/blob/master/notebooks/LibriSpeech.ipynb)
 
@@ -308,7 +316,40 @@ There are several ways to instruct a model about performing as a character, some
 [Official Oobabooga on GPU](https://colab.research.google.com/github/oobabooga/text-generation-webui/blob/main/Colab-TextGen-GPU.ipynb) - [Alternative](https://colab.research.google.com/drive/1ZsRJCH4H6ZNlNoU3AMngR8MHmuZnQu2T#scrollTo=MFQl6-FjSYtY) - [Alt2](https://colab.research.google.com/drive/1ztRHfwON9zCeaEiaKPWXIfCDmSYwfzu_#scrollTo=UecGsZ88rsOF)
 
 
-#### ToDo
+# Specific Guides & Setups
+
+**Building an all in one solution to connect from anywhere with all the services**
+
+	
+
+	The idea is to build a server side API endpoint with either Kobold.cpp or Oobabooga’s webui with SillyTavern as your UI to use remotely. We will need all the corresponding software and their dependencies on the computer you’re planning to use. In addition we will need several software to ensure a secure connection is available, there are several ways to achieve this and some might be better than others but I’m going to show the configuration I had (which isn't a professional solution but works well for personal use). I will assume you already set up the corresponding software for local use, launching the inference server with the ‘–api’ arguments and all that jazz (no need to use ‘–listen’ for all addresses, we will use the reverse proxy for accessing the server).
+
+We will need to setup a reverse proxy in order to route the requests to the specific port for each service, such as the API endpoint of the Inference server, both for stable diffusion & oobaboga’s default port is 7860 so you’ll have to change one if you plan to use them in the same machine. For reference, these are the default ports for each software we’re gonna use:
+
+[Oobabooga’s webui - 7860](http://localhost:7860)
+
+[SillyTavern - 8000](http://localhost:8000)
+
+[ST Extras (for speech recognition & other modules) - 5100](http://localhost:5100)
+
+[Daswer123’s XTTS sever - 8020](http://localhost:8020)
+
+[Automatic1111’s SD webui - 7860](http://localhost:7860)
+
+[NginX proxy manager - 81](http://localhost:81)
+
+	First off you will need a way to connect to your server without the need to open any port on your router in order to prevent any kind of security issue, since this guide is just meant for personal use we’re not gonna publish any of the services to the internet. That’s done via a private VPN, there are many and many ways of achieving this, but for ease of use we will be setting up an already managed VPN with [Tailscale](https://tailscale.com/download) ([Zerotier](https://www.zerotier.com/download/) is also pretty similar).
+
+	There’s already documentation on how to install it and it's pretty simple so I’ll just say you need to install it in both your server and your client where you want to connect from, it has builds for linux, windows, mac and android, and if you need to install it on an unsupported device you can always [create a router to route the traffic thru a supported device](https://tailscale.com/kb/1019/subnets). 
+
+	Once you have the VPN up and running you can already connect remotely through your VPN’s IP address (something like 100.x.x.x) and the port you want to access, for connecting to your running ST instance for example, it will be something like ‘http://100.100.100.100:8000’ and you already have a way to use it remotely. The problem is as you might notice some functionality is not possible because the connection you are reaching (and what the server is providing) is insecure (no https), the speech recognition for example won't be routed thru the internet but rather use your local mic every time you try to use it. That happens despite using the VPN which already is secure because the services and your browser where you connect from have no way to know that.
+
+	For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.com/kb/1153/enabling-https) and a piece of software called a [reverse proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) ([NginX](https://www.nginx.com/) is among many other things a reverse proxy), which basically means that it will translate the raw unencrypted data to securely access your services as if you were locally accessing them.
+
+	The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem
+
+
+### ToDo
 
 
 
