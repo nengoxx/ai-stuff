@@ -1,4 +1,4 @@
-# Concepts & Definitions
+## Concepts & Definitions
 
 **_LLM (Large Language Model)_** - Refers to the neural network (a type of model inspired on the human brain) used for natural language, such as text2text generation(gpt-4), text classification or sentiment analysis(BERT). The main idea behind it is a text completion mechanism with high accuracy (ideally) for predicting the next word or set of words in a given context.
 
@@ -51,10 +51,10 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 [https://huggingface.co/docs/transformers/index](https://huggingface.co/docs/transformers/index)
 
 
-# Popular Models & Services
+## Popular Models & Services
 
 
-## Text Generation
+### Text Generation
 
 
 
@@ -67,7 +67,7 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 * [Mistral-7b](https://huggingface.co/chat/): 
     * Small and decently smart open source model developed by [mistral.ai](https://mistral.ai), fits on consumer hardware, it’s actually very smart for its size and has a ton of community variants and flavors for many use cases.
 * [Mixtral-8x7b](https://huggingface.co/chat/): 
-    * Same as mistral-7b but MoE architecture with 8 experts, around 13b parameters are active on inference and people claim it’s smarter than gpt-3.5. 
+    * Same as mistral-7b but MoE architecture with 8 experts, around 13b parameters are active on inference and people claim it’s smarter than gpt-3.5. Needs 20GB+ to run.
     * [https://arxiv.org/abs/2401.04088](https://arxiv.org/abs/2401.04088)
 * [Mistral Large](https://chat.mistral.ai/chat) and other [mistral.ai](https://mistral.ai) models: 
     * Smart but they are paid only through API unlike mistral/mixtral.
@@ -81,7 +81,7 @@ Some models are significantly better than the base model, but also some of the m
 For reference on the best models for a given task there are several leaderboards around, some of them on the site itself, that said the leaderboards should be seen strictly as a reference due to the complexity of the models and the technology itself.
 
 
-## Image Generation
+### Image Generation
 
 
 
@@ -117,7 +117,7 @@ For reference on the best models for a given task there are several leaderboards
 Check the specific model/finetune page for optimal resolutions.
 
 
-## Text to Speech/Sound Generation
+### Text to Speech/Sound Generation
 
 
 
@@ -132,7 +132,7 @@ Check the specific model/finetune page for optimal resolutions.
     * Their song generation model, based on Bark.
 
 
-## Speech to Text Generation
+### Speech to Text Generation
 
 
 
@@ -143,14 +143,14 @@ Check the specific model/finetune page for optimal resolutions.
     * [https://huggingface.co/collections/openai/whisper-release-6501bba2cf999715fd953013](https://huggingface.co/collections/openai/whisper-release-6501bba2cf999715fd953013)
 
 
-# Software
+## Software
 
 The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
 
 Note that most of this software can be run on google colab free tier, and there are several already configured colabs around the community.
 
 
-## Text Generation
+### Text Generation
 
 
 
@@ -175,7 +175,7 @@ Note that most of this software can be run on google colab free tier, and there 
 
 
 
-## Image Generation
+### Image Generation
 
 
 
@@ -185,7 +185,7 @@ Note that most of this software can be run on google colab free tier, and there 
     * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
 
 
-## Text to Speech/Sound Generation
+### Text to Speech/Sound Generation
 
 
 
@@ -195,7 +195,7 @@ Note that most of this software can be run on google colab free tier, and there 
     * Can do text2sound from the terminal.
 
 
-## Speech to Text Generation
+### Speech to Text Generation
 
 
 
@@ -203,7 +203,7 @@ Note that most of this software can be run on google colab free tier, and there 
     * Can transcribe & translate from the terminal.
 
 
-# Hardware requirements
+## Hardware requirements
 
 For text inference a 12GB+ GPU is advised if you plan to run anything more than 7b models with high quantization or large context windows.
 
@@ -231,7 +231,7 @@ Most of the projects for local deployment have easy to install scripts and docum
 Note that most of these projects rely on specific [python environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) created through [conda](https://docs.anaconda.com/free/miniconda/) and, as with any software in development, bugs and issues are expected. It is recommended to be able to manage those environments in case some dependency or software doesn't get correctly installed or configured by the install scripts, so a [very basic knowledge of both python and conda is required](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 
-# Useful docs & guides
+## Useful docs & guides
 
 **General Prompt Engineering**
 
@@ -258,7 +258,7 @@ There are several ways to instruct a model about performing as a character, some
 [https://wikia.schneedc.com/bot-creation/trappu/introduction](https://wikia.schneedc.com/bot-creation/trappu/introduction) - Ali:chat + Plists (probably the best general approach).
 
 
-# Resources
+## Resources
 
 **Communities**
 
@@ -333,7 +333,7 @@ There are several ways to instruct a model about performing as a character, some
 [Official Oobabooga on GPU](https://colab.research.google.com/github/oobabooga/text-generation-webui/blob/main/Colab-TextGen-GPU.ipynb) - [Alternative](https://colab.research.google.com/drive/1ZsRJCH4H6ZNlNoU3AMngR8MHmuZnQu2T#scrollTo=MFQl6-FjSYtY) - [Alt2](https://colab.research.google.com/drive/1ztRHfwON9zCeaEiaKPWXIfCDmSYwfzu_#scrollTo=UecGsZ88rsOF)
 
 
-# Specific Guides & Setups
+## Specific Guides & Setups
 
 **Building an all in one solution to connect from anywhere with all the services(WIP)**
 
@@ -365,11 +365,35 @@ For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.co
 
 The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem, Tailscale provides a [very basic implementation of a DNS server](https://tailscale.com/kb/1081/magicdns#enabling-magicdns) that may or may not work for your setup, so we will disable it and use an external DNS provider, [Cloudflare](https://dash.cloudflare.com/login) in our case (you can also locally host a DNS server). To disable Tailscale MagicDNS [go to the admin dashboard > dns tab and disable magicDNS](https://login.tailscale.com/admin/dns), while we are here, add Cloudflare’s public DNS servers (1.1.1.1 & 1.0.0.1) and check ‘override local dns’. 
 
-![1](images/cloudflareonts.png "should look like this")
+![1](images/image1.png "image_tooltip")
 
 
+The next step would be to add your domain/website in [Cloudflare’s dashboard](https://dash.cloudflare.com), the address should be the one Tailscale gave you when you enabled HTTPS (something like [dom-ain.ts.net](dom-ain.ts.net)), and add the DNS records pointing to the Tailscale address of your server (the 100.x.x.x IP), when adding the DNS records disable the proxying and just use the DNS service. You don’t need to add all your services, just point to the server and the reverse proxy will do the rest. Note that in order to claim the domain, you need to change your router's default DNS to the ones that cloudflare provided when you created the DNS records(at the bottom of the page), you can use the public DNS servers but [you’ll need to re-add the domain every month or so](https://developers.cloudflare.com/dns/zone-setups/troubleshooting/domain-deleted/).
 
-# ToDo & WIP
+If you can't change your router DNS for any reason you will have to set up a local DNS and connect to it from any machine you want to use remotely.
+
+By now you should have the ability to connect to your computer from anywhere thru HTTPS and those DNS records as long as you have Tailscale running, but you need the actual proxy server to route to any subdomain or service. For that we are going to use [NginX proxy manager](https://nginxproxymanager.com/), it’s a dead easy implementation of NginX that runs on [Docker](https://www.docker.com/) (if you don’t want to run docker on your machine you can use NginX and configure it yourself). 
+
+The setup is very easy and the only thing you need to do is point to each of your services with the full [subdomain.dom-ain.ts.net](subdomain.domain.ts.net) address to the local IP of your server, which for docker will be for example: [http://host.docker.internal:8000](http://host.docker.internal:8000) for the SillyTavern UI. Remember to add the certificates you got from Tailscale in the SSL tab and connect through https://. The final configuration should look like this:
+
+[sillytavern.dom-ain.ts.net](sillytavern.dom-ain.ts.net) -> [http://host.docker.internal:8000](http://host.docker.internal:8000)
+
+[extras.dom-ain.ts.net](http://extras.dom-ain.ts.net) -> [http://host.docker.internal:5100](http://host.docker.internal:5100)
+
+[xtts.dom-ain.ts.net](http://xtts.dom-ain.ts.net) -> [http://host.docker.internal:8020](http://host.docker.internal:8020)
+
+[textgen.dom-ain.ts.net](http://textgen.dom-ain.ts.net) -> [http://host.docker.internal:7860](http://host.docker.internal:7860) (change one of the two if youre gonna use both)
+
+[sd.dom-ain.ts.net](http://sd.dom-ain.ts.net) -> [http://host.docker.internal:7860](http://host.docker.internal:7860) (change one of the two if youre gonna use both)
+
+Basically one subdomain for each service in order to use those addresses inside of SillyTavern or any UI that you want to use to connect from. 
+
+Note that if you can't validate your domain in Cloudflare you’re gonna have to bypass the warnings from the browser you are connecting from, in firefox you just have to access every service once and click accept the risk and continue to the site.
+
+At this point you can securely connect to SillyTavern from anywhere with all the services working as intended remotely.
+
+
+## ToDo & WIP
 
 
 
