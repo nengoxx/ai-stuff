@@ -51,9 +51,10 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 [https://huggingface.co/docs/transformers/index](https://huggingface.co/docs/transformers/index)
 
 
-# Popular Models
+# Popular Models & Services
 
-**[Text Generation]**
+
+## Text Generation
 
 
 
@@ -64,7 +65,7 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 * [LLama2](https://huggingface.co/chat/): 
     * [Meta](https://llama.meta.com/)’s open sourced model, it’s starting to show its age with the release of mistral/mixtral based models.
 * [Mistral-7b](https://huggingface.co/chat/): 
-    * Small and decently smart open source model developed by [mistral.ai](https://mistral.ai), it’s actually very smart for its size and has a ton of community variants and flavors for many use cases.
+    * Small and decently smart open source model developed by [mistral.ai](https://mistral.ai), fits on consumer hardware, it’s actually very smart for its size and has a ton of community variants and flavors for many use cases.
 * [Mixtral-8x7b](https://huggingface.co/chat/): 
     * Same as mistral-7b but MoE architecture with 8 experts, around 13b parameters are active on inference and people claim it’s smarter than gpt-3.5. 
     * [https://arxiv.org/abs/2401.04088](https://arxiv.org/abs/2401.04088)
@@ -79,12 +80,13 @@ Some models are significantly better than the base model, but also some of the m
 
 For reference on the best models for a given task there are several leaderboards around, some of them on the site itself, that said the leaderboards should be seen strictly as a reference due to the complexity of the models and the technology itself.
 
-**[Image Generation]**
+
+## Image Generation
 
 
 
 * [Stability.ai](https://Stability.ai)‘s stable diffusion: 
-    * Popular base model for image generation, a lot of models are built from it. Default size is 512x512.
+    * Popular base model for image generation, it’s fast and resource friendly and a lot of models are built from it. Default size is 512x512.
     * Supported resolutions: Anything below 768 pixels.
     * [https://stability.ai/stable-image](https://stability.ai/stable-image)
     * [https://github.com/Stability-AI/StableDiffusion](https://github.com/Stability-AI/StableDiffusion)
@@ -114,7 +116,8 @@ For reference on the best models for a given task there are several leaderboards
 
 Check the specific model/finetune page for optimal resolutions.
 
-**[Text to Speech Generation]**
+
+## Text to Speech/Sound Generation
 
 
 
@@ -122,8 +125,14 @@ Check the specific model/finetune page for optimal resolutions.
     * [https://github.com/snakers4/silero-models](https://github.com/snakers4/silero-models)
 * [XTTSv2](https://huggingface.co/coqui/XTTS-v2): 
     * One of the best open source tts models, can do voice cloning with 6s audio files. Unfortunately [Coqui.ai](https://Coqui.ai) is shutting down.
+* [Suno.ai](https://www.suno.ai/)’s Bark:
+    * Not just a tts model but text2sound, which can deviate from the provided prompt. Not the same as their song generation model though.
+    * [https://github.com/suno-ai/bark/tree/main](https://github.com/suno-ai/bark/tree/main)
+* Suno.ai’s [Chirp v1](https://app.suno.ai/):
+    * Their song generation model, based on Bark.
 
-**[Speech to Text Generation]**
+
+## Speech to Text Generation
 
 
 
@@ -138,12 +147,15 @@ Check the specific model/finetune page for optimal resolutions.
 
 The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
 
-**[Text Generation]**
+Note that most of this software can be run on google colab free tier, and there are several already configured colabs around the community.
+
+
+## Text Generation
 
 
 
 * [Llama.cpp](https://github.com/ggerganov/llama.cpp): 
-    * Single file solution for text inference with an API server and integrated UI, very easy to run as it’s just a single executable without the need of any install, can run fully on GPU or split between  VRAM/RAM for when a model is too large to fit entirely on your GPU.
+    * Single file solution for text inference with an API server and integrated UI, very easy to run as it’s just a single executable without the need of any install, can run fully on GPU or split between VRAM/RAM for when a model is too large to fit entirely on your GPU.
 * [Kobold.cpp](https://github.com/LostRuins/koboldcpp): 
     * It’s an improved fork of llama.cpp, supposedly faster and with some extra functionalities.
 * [Oobabooga’s text-generation-ui](https://github.com/oobabooga/text-generation-webui): 
@@ -162,7 +174,8 @@ The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the 
     *Note that while back-ends are needed for running local models, there are also a lot of online front-end solutions that can connect to your API if you enable the server on your end. Preferably use a personal VPN instead of opening ports on the router, or a reverse proxy like [NPM](https://nginxproxymanager.com/) or [NginX](https://www.nginx.com/) if you need to use SSL for things like speech recognition over the internet and such.
 
 
-**[Image Generation]**
+
+## Image Generation
 
 
 
@@ -171,23 +184,23 @@ The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the 
 * [ConfyUI](https://github.com/comfyanonymous/ComfyUI):
     * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
 
-**[Text to Speech Generation]**
+
+## Text to Speech/Sound Generation
 
 
 
 * Daswer123’s [xtts-webui](https://github.com/daswer123/xtts-webui) & [xtts-api-server](https://github.com/daswer123/xtts-api-server): 
     * You can use and finetune the model with the web UI or connect with SillyTavern to the API server.
+* [Suno.ai’s Bark](https://github.com/suno-ai/bark/tree/main):
+    * Can do text2sound from the terminal.
 
-**[Speech to Text Generation]**
+
+## Speech to Text Generation
 
 
 
 * [OpenAI’s Whisper](https://github.com/openai/whisper):
     * Can transcribe & translate from the terminal.
-
-	
-
-*Note that most of this software can be run on google colab free tier, and there are several already configured colabs around the community.
 
 
 # Hardware requirements
@@ -230,7 +243,7 @@ There is a lot to prompt engineering for both professional and entertainment use
 
 **Chatbot making guides for roleplay**
 
-This section can get very convoluted as storytelling and literary writing is a complex thing for LLMs (even for humans) and heavily depends on the model used, also the large context windows that are used in this use case affect the responses a lot. A rule of the thumb is to think about the models as what they are, text completion mechanisms, and for example if you let the writing style get dull over time, the context that you provide will be that same dull chat history and the model will provide a similar response, degrading the quality quickly, same for the repetition issues and such.
+This section can get very convoluted as storytelling and literary writing is a complex thing for LLMs (even for humans) and heavily depends on the model used, also the large context windows that are used in this use case affect the responses a lot. A rule of the thumb is to think about the models as what they are, text completion mechanisms, and for example if you let the writing style get dull over time, the context that you provide will be that same dull chat history and the model will provide a similar response, degrading the quality quickly, same for the repetition issues and such. Multiple character scenarios can also present a challenge for smaller models.
 
 There are several ways to instruct a model about performing as a character, some of them consider the fact that those models often are trained with code, and so they use some JSONish or List (Boostyle/W++/Plists) formatting, others try to enforce the writing style of the bot with examples (Ali:chat).
 
@@ -279,6 +292,10 @@ There are several ways to instruct a model about performing as a character, some
 
 [https://horde.koboldai.net/](https://horde.koboldai.net/) - crowdsourced AI generation, both text & image. Not too reliable but good for testing a variety of models.
 
+**Other UIs & services** - For everything but language.
+
+[https://app.suno.ai/](https://app.suno.ai/)
+
 **Other API services** - Hosting open source LLM APIs.
 
 [https://infermatic.ai/for-people/](https://infermatic.ai/for-people/)
@@ -318,7 +335,7 @@ There are several ways to instruct a model about performing as a character, some
 
 # Specific Guides & Setups
 
-**Building an all in one solution to connect from anywhere with all the services**
+**Building an all in one solution to connect from anywhere with all the services(WIP)**
 
 	
 
@@ -344,12 +361,15 @@ There’s already documentation on how to install it and it's pretty simple so I
 
 Once you have the VPN up and running you can already connect remotely through your VPN’s IP address (something like 100.x.x.x) and the port you want to access, for connecting to your running ST instance for example, it will be something like ‘http://100.100.100.100:8000’ and you already have a way to use it remotely. The problem is as you might notice some functionality is not possible because the connection you are reaching (and what the server is providing) is insecure (no https), the speech recognition for example won't be routed thru the internet but rather use your local mic every time you try to use it. That happens despite using the VPN which already is secure because the services and your browser where you connect from have no way to know that.
 
-For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.com/kb/1153/enabling-https) and a piece of software called a [reverse proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) ([NginX](https://www.nginx.com/) is among many other things a reverse proxy), which basically means that it will translate the raw unencrypted data to securely access your services as if you were locally accessing them.
+For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.com/kb/1153/enabling-https) and a piece of software called a [reverse proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) ([NginX](https://www.nginx.com/) is among many other things a reverse proxy), which basically will translate the raw unencrypted data to securely access your services as if you were locally accessing them.
 
-The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem
+The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem, Tailscale provides a [very basic implementation of a DNS server](https://tailscale.com/kb/1081/magicdns#enabling-magicdns) that may or may not work for your setup, so we will disable it and use an external DNS provider, [Cloudflare](https://dash.cloudflare.com/login) in our case (you can also locally host a DNS server). To disable Tailscale MagicDNS [go to the admin dashboard > dns tab and disable magicDNS](https://login.tailscale.com/admin/dns), while we are here, add Cloudflare’s public DNS servers (1.1.1.1 & 1.0.0.1) and check ‘override local dns’. 
+
+![1](images/cloudflareonts.png "should look like this")
 
 
-### ToDo
+
+# ToDo & WIP
 
 
 
@@ -358,3 +378,4 @@ The first step is to follow [Tailscale documentation and enable HTTPS](https://t
 3. Links for guides for prompt engineering for general purpose and different bot making guides.
 4. List of different settings/tips for some tested models and suggestions for some use cases.
 5. Some tips about samplers and convergence in diffusion models
+6. Add text to sound(suno.ai) and text2video([https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)) models & services
