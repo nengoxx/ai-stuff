@@ -138,7 +138,7 @@ Check the specific model/finetune page for optimal resolutions.
 
 The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
 
-**[Text Generation] **
+**[Text Generation]**
 
 
 
@@ -303,7 +303,7 @@ There are several ways to instruct a model about performing as a character, some
 
 [https://www.paperspace.com/](https://www.paperspace.com/)
 
-**Google Colab examples **- Beware of the captchas
+**Google Colab examples** - Beware of the captchas
 
 [Official Whisper](https://colab.research.google.com/github/openai/whisper/blob/master/notebooks/LibriSpeech.ipynb)
 
