@@ -44,6 +44,10 @@ Prompts can become complex and some can try to force the LLM to behave in certai
 
 [https://huggingface.co/docs/optimum/concept_guides/quantization](https://huggingface.co/docs/optimum/concept_guides/quantization)
 
+**_VRAM (Video Random-Access Memory)_** - It's the memory used for graphic computing that your GPU (video card) uses, it’s faster than RAM and it's the key to run the kind of computations that these models require. 
+
+**_API (Application programming interface)_** - A way to communicate with a piece of software, in our case to the inference server that loads the model (some have integrated UI’s but most offer an API endpoint). 
+
 *Huggingface has a lot of guides with videos on Youtube about some of these concepts and how to use their libraries:
 
 [https://huggingface.co/docs](https://huggingface.co/docs)
@@ -145,7 +149,7 @@ Check the specific model/finetune page for optimal resolutions.
 
 ## Software
 
-The actual libraries(transformers, Exllama, llama.cpp, diffusers…) to run the models are integrated in these backend solutions, they also offer a simple frontend and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
+The actual libraries([transformers](https://github.com/huggingface/transformers), [ExLlamaV2](https://github.com/turboderp/exllamav2), [Llama.cpp](https://github.com/ggerganov/llama.cpp), [diffusers](https://github.com/huggingface/diffusers)…) to run the models are integrated in these backend solutions, they also offer a simple UI and an API to connect to from any frontend. There is a lot of documentation on how to run these projects, they are self sufficient for basic tasks and some have modules and extensions for extra functionality or an API server to connect to from any other source. There are also plenty of frontend solutions to connect to those API endpoints.
 
 Note that most of this software can be run on google colab free tier, and there are several already configured colabs around the community.
 
@@ -158,21 +162,32 @@ Note that most of this software can be run on google colab free tier, and there 
     * Single file solution for text inference with an API server and integrated UI, very easy to run as it’s just a single executable without the need of any install, can run fully on GPU or split between VRAM/RAM for when a model is too large to fit entirely on your GPU.
 * [Kobold.cpp](https://github.com/LostRuins/koboldcpp): 
     * It’s an improved fork of llama.cpp, supposedly faster and with some extra functionalities.
+* [ExLlamaV2](https://github.com/turboderp/exllamav2):
+    * Very fast and multiple GPUs are supported.
 * [Oobabooga’s text-generation-ui](https://github.com/oobabooga/text-generation-webui): 
-    * The most versatile and complete, integrates llama.cpp and Exllama which are the best inference libraries for consumer hardware at the moment. It has several extensions and an API server.
+    * The most versatile and definitely the best one to start with, integrates llama.cpp and exllama among others. It has several extensions and an API server.
 * [SillyTavern](https://sillytavernai.com/): 
     * An excellent frontend-only solution for anything LLM related. While heavily focused on chat/roleplay, it offers great flexibility and lots of integrations with all kinds of services and backends, be it local or not. Also has modules to integrate web search, speech recognition, text-to-speech and image generation backends.
-    * Scripts for easy installation: [https://github.com/SillyTavern/SillyTavern-Launcher](https://github.com/SillyTavern/SillyTavern-Launcher)
-* [RisuAI](https://risuai.xyz/):
-    * Another frontend-only for LLMs, this one is solely focused on roleplay/chat and doesn't have as many extensions.
+    * Scripts for easy installation, also for installing required software like node, cuda, buildtools, some ui’s(oobabooga’s, koboldcpp,some sd webuis…), etc: [https://github.com/SillyTavern/SillyTavern-Launcher](https://github.com/SillyTavern/SillyTavern-Launcher)
 * [llama.sh](https://github.com/m18coppola/llama.sh):
     * Simple frontend for the command line.
 * [mikupad.html](https://github.com/lmg-anon/mikupad):
     * Simple frontend for the browser.
     * [https://lmg-anon.github.io/mikupad/mikupad.html](https://lmg-anon.github.io/mikupad/mikupad.html)
 
-    *Note that while back-ends are needed for running local models, there are also a lot of online front-end solutions that can connect to your API if you enable the server on your end. Preferably use a personal VPN instead of opening ports on the router, or a reverse proxy like [NPM](https://nginxproxymanager.com/) or [NginX](https://www.nginx.com/) if you need to use SSL for things like speech recognition over the internet and such.
+*Note that while back-ends are needed for running local models, there are also a lot of online front-end solutions that can connect to your API if you enable the server on your end. Preferably use a personal VPN instead of opening ports on the router, or a reverse proxy like [NPM](https://nginxproxymanager.com/) or [NginX](https://www.nginx.com/) if you need to use SSL for things like speech recognition over the internet and such.
 
+More UIs: [https://github.com/JShollaj/Awesome-LLM-Web-UI](https://github.com/JShollaj/Awesome-LLM-Web-UI)
+
+**My recommended setup for text generation:**
+
+For an all-in-one solution: Oobabooga’s for compatibility of models(and access to TTS, speech recognition, web search, RAG thru extensions), or kobold.cpp if you’re low on VRAM (to run .gguf models split between RAM/VRAM). Or [exui](https://github.com/turboderp/exui) for running .exl2 (exllama2 model type) if you want something very lightweight.
+
+For a lightweight only-backend solution to just run the API server: [TabbyAPI](https://github.com/theroyallab/tabbyAPI) or Exllama (for .exl2 specifically) or [Aphrodite](https://github.com/PygmalionAI/Aphrodite-engine).
+
+For a frontend solution: Oobabooga for general tasks, RAG & web search or SillyTavern for chatting & roleplay, altho it also has some RAG and web search functionalities. There are other alternatives for RAG/web search but they’re all still a bit green in my opinion: [chat-ui](https://github.com/huggingface/chat-ui) has the most decent web search but no RAG, [h2oGPT](https://github.com/h2oai/h2ogpt) supports RAG & web search, and [ChainFury](https://github.com/NimbleBoxAI/ChainFury) seems to have both too.
+
+Personally I use Oobabooga’s both for the API server and the UI, and also ST depending on my use case. It’s also the easiest setup since the ST scripts lets you install everything you need and more.
 
 
 ### Image Generation
@@ -183,6 +198,10 @@ Note that most of this software can be run on google colab free tier, and there 
     * The most popular solution for running SD and adjacent models, extremely versatile with tons of extensions, even has an extension to use it in Photoshop.
 * [ConfyUI](https://github.com/comfyanonymous/ComfyUI):
     * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
+
+**My recommended setup for image generation:**
+
+You can easily try most of the UIs for image generation with the project [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix), it lets you easily install those projects with a shared folder for the models and such, definitely the easiest and most manageable way to start. 
 
 
 ### Text to Speech/Sound Generation
@@ -224,7 +243,7 @@ Training & Fine Tuning takes more than 2-4 times the amount of VRAM than inferen
 
 All that said, VRAM speed is king if everything fits in it.
 
-**Software requirements (W11)**
+**Software requirements (Windows 11)**
 
 Most of the projects for local deployment have easy to install scripts and documentation, but for some of the backend solutions or their extensions it’s necessary to install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and the [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) (ST Extras, facechain, etc…). Check the requirements for each project’s dependencies before trying to run them to avoid issues.
 
@@ -335,7 +354,8 @@ There are several ways to instruct a model about performing as a character, some
 
 ## Specific Guides & Setups
 
-**Building an all in one solution to connect from anywhere with all the services(WIP)**
+
+### Building an all in one solution to connect from anywhere with all the services(WIP)
 
 	
 
@@ -372,7 +392,7 @@ The next step would be to add your domain/website in [Cloudflare’s dashboard](
 
 If you can't change your router DNS for any reason you will have to set up a local DNS and connect to it from any machine you want to use remotely.
 
-By now you should have the ability to connect to your computer from anywhere thru HTTPS and those DNS records as long as you have Tailscale running, but you need the actual proxy server to route to any subdomain or service. For that we are going to use [NginX proxy manager](https://nginxproxymanager.com/), it’s a dead easy implementation of NginX that runs on [Docker](https://www.docker.com/) (if you don’t want to run docker on your machine you can use NginX and configure it yourself). 
+By now you should have the ability to connect to your computer from anywhere thru HTTPS and those DNS records as long as you have Tailscale running, but you need the actual proxy server to route to any subdomain or service. For that we are going to use [NginX proxy manager](https://nginxproxymanager.com/), it’s a dead easy implementation of NginX that runs on [Docker](https://www.docker.com/) (if you don’t want to run docker on your machine you can use NginX and configure it yourself). It’s a docker container so the IP address to access the local services outside docker will be [host.docker.internal](http://host.docker.internal).
 
 The setup is very easy and the only thing you need to do is point to each of your services with the full [subdomain.dom-ain.ts.net](subdomain.domain.ts.net) address to the local IP of your server, which for docker will be for example: [http://host.docker.internal:8000](http://host.docker.internal:8000) for the SillyTavern UI. Remember to add the certificates you got from Tailscale in the SSL tab and connect through https://. The final configuration should look like this:
 
@@ -403,3 +423,5 @@ At this point you can securely connect to SillyTavern from anywhere with all the
 4. List of different settings/tips for some tested models and suggestions for some use cases.
 5. Some tips about samplers and convergence in diffusion models
 6. Add text to sound(suno.ai) and text2video([https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)) models & services
+7. Best setup for RAG & web search (still trying things out)
+8. More about quantization
