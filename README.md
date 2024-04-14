@@ -85,6 +85,31 @@ Some models are significantly better than the base model, but also some of the m
 For reference on the best models for a given task there are several leaderboards around, some of them on the site itself, that said the leaderboards should be seen strictly as a reference due to the complexity of the models and the technology itself.
 
 
+#### Some personal favorites:
+
+Some mixes and pre-trained models that I used(in exllama/kobold.cpp) and performed well, and some others that I want to try, I’ll try to keep it updated.
+
+
+
+* [mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) - Smart and 32k context. The base for most finetunes/mixes right now.
+* [upstage/SOLAR-10.7B-Instruct-v1.0](https://huggingface.co/upstage/SOLAR-10.7B-Instruct-v1.0) - Pretty smart for its size.
+* [01-ai/Yi-9B-200K](https://huggingface.co/01-ai/Yi-9B-200K) - 200k context and apparently good at coding(probably not comparable to much bigger models, haven't tried it yet). You’ll need a lot of VRAM for the full context.
+* [senseable/WestLake-7B-v2](https://huggingface.co/senseable/WestLake-7B-v2) - Roleplay/Chat. Needs 5bpw quantization to fit on 12GB with full context.
+* [froggeric/WestLake-10.7B-v2-GGUF](https://huggingface.co/froggeric/WestLake-10.7B-v2-GGUF) - Pretty new, more creative/less instruction following than WestLake-7B-v2. Needs 4bpw(or less) to fit on 12GB.
+* [SanjiWatsuki/Kunoichi-DPO-v2-7B](https://huggingface.co/SanjiWatsuki/Kunoichi-DPO-v2-7B) - One of the best for RP below 20B(allegedly). Fits at 8bpw quant with the full 8k context.
+* [Sao10K/Fimbulvetr-11B-v2-GGUF](https://huggingface.co/Sao10K/Fimbulvetr-11B-v2-GGUF) - The other one of the best for RP below 20B(allegedly). Only 4k context tho, fits at 6bpw on 12GB.
+* [KoboldAI/LLaMA2-13B-Psyfighter2-GGUF](https://huggingface.co/KoboldAI/LLaMA2-13B-Psyfighter2-GGUF) - Pretty good for RP but comparable to lower sized models available. 13B are harder to fit in 12GB.
+
+Bigger models (+12GB VRAM needed):
+
+
+
+* [mistralai/Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1) - Pretty smart.
+* [NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3](https://huggingface.co/NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3) - [NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss](https://huggingface.co/NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss) - Mixtral but for RP, can get repetitive and needs a bit of careful prompting.
+
+More models: [https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+
+
 ### Image Generation
 
 
@@ -119,6 +144,23 @@ For reference on the best models for a given task there are several leaderboards
 *Same as for the LLM space, [Civit.ai](https://Civit.ai) has a massive community with models for any use case.
 
 Check the specific model/finetune page for optimal resolutions.
+
+
+#### Some Personal Favorites:
+
+
+
+* [https://civitai.com/models/133005/juggernaut-xl](https://civitai.com/models/133005/juggernaut-xl) - Based on SDXL Lightning. Pretty good & realistic: [Image1](https://civitai.com/images/9852659), [image2](https://civitai.com/images/8924547).
+* [https://civitai.com/models/139562/realvisxl-v40](https://civitai.com/models/139562/realvisxl-v40) - Based on SDXL Lightning.
+
+Anime:
+
+
+
+* [https://civitai.com/models/260267/animagine-xl-v31](https://civitai.com/models/260267/animagine-xl-v31) - Based on SDXL, great composition.
+* [https://civitai.com/models/317902/t-ponynai3](https://civitai.com/models/317902/t-ponynai3) - Based on [Pony](https://civitai.com/models/257749/pony-diffusion-v6-xl) & [NAI3](https://docs.novelai.net/image.html). Good composition, better faces/expressions. Large prompts require lowering CFG to avoid artifacts/saturation.
+* [https://civitai.com/models/4468/counterfeit-v30](https://civitai.com/models/4468/counterfeit-v30) - Based on SD 1.5, great composition.
+* [https://civitai.com/models/27259/tmnd-mix](https://civitai.com/models/27259/tmnd-mix) - Based on SD 1.5, cutest waifus & cute style at low sampling steps.
 
 
 ### Text to Speech/Sound Generation
@@ -183,11 +225,11 @@ More UIs: [https://github.com/JShollaj/Awesome-LLM-Web-UI](https://github.com/JS
 
 For an all-in-one solution: Oobabooga’s for compatibility of models(and access to TTS, speech recognition, web search, RAG thru extensions), or kobold.cpp if you’re low on VRAM (to run .gguf models split between RAM/VRAM). Or [exui](https://github.com/turboderp/exui) for running .exl2 (exllama2 model type) if you want something very lightweight.
 
-For a lightweight only-backend solution to just run the API server: [TabbyAPI](https://github.com/theroyallab/tabbyAPI) or Exllama (for .exl2 specifically) or [Aphrodite](https://github.com/PygmalionAI/Aphrodite-engine).
+For a lightweight only-backend solution to just run the API server: [TabbyAPI](https://github.com/theroyallab/tabbyAPI) (for .exl2 specifically) or [Aphrodite](https://github.com/PygmalionAI/Aphrodite-engine).
 
 For a frontend solution: Oobabooga for general tasks, RAG & web search or SillyTavern for chatting & roleplay, altho it also has some RAG and web search functionalities. There are other alternatives for RAG/web search but they’re all still a bit green in my opinion: [chat-ui](https://github.com/huggingface/chat-ui) has the most decent web search but no RAG, [h2oGPT](https://github.com/h2oai/h2ogpt) supports RAG & web search, and [ChainFury](https://github.com/NimbleBoxAI/ChainFury) seems to have both too.
 
-Personally I use Oobabooga’s both for the API server and the UI, and also ST depending on my use case. It’s also the easiest setup since the ST scripts lets you install everything you need and more.
+Personally I use either Oobabooga’s both for the API server and the UI, or just TabbyAPI with ST depending on my use case. It’s also the easiest setup since the ST scripts lets you install everything you need and more.
 
 
 ### Image Generation
@@ -195,13 +237,17 @@ Personally I use Oobabooga’s both for the API server and the UI, and also ST d
 
 
 * [Automatic1111’s stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui): 
-    * The most popular solution for running SD and adjacent models, extremely versatile with tons of extensions, even has an extension to use it in Photoshop.
+    * The most popular solution for running SD and adjacent models, extremely versatile with tons of extensions, even has an extension to use it in Photoshop. Using ‘--xformers’ is not needed.
+* [lllyasviel’s stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge):
+    * Built on top of A1111’s for better performance and compatibility with hardware. It’s a 10-20% speed up with recommended settings compared to A1111’s. Using ‘–xformers’ is not recommended.
 * [ConfyUI](https://github.com/comfyanonymous/ComfyUI):
     * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
 
 **My recommended setup for image generation:**
 
 You can easily try most of the UIs for image generation with the project [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix), it lets you easily install those projects with a shared folder for the models and such, definitely the easiest and most manageable way to start. 
+
+Personally I just use stable-diffusion-webui-forge, do not enable ‘–xformers’ with it, it’s slower and bugs out when removing the arguments from the launcher.
 
 
 ### Text to Speech/Sound Generation
@@ -220,6 +266,8 @@ You can easily try most of the UIs for image generation with the project [Stabil
 
 * [OpenAI’s Whisper](https://github.com/openai/whisper):
     * Can transcribe & translate from the terminal.
+* [Whisper.cpp](https://github.com/ggerganov/whisper.cpp):
+    * Single file solution.
 
 
 ## Hardware requirements
@@ -315,6 +363,8 @@ There are several ways to instruct a model about performing as a character, some
 
 [https://app.suno.ai/](https://app.suno.ai/)
 
+[https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)
+
 **Other API services** - Hosting open source LLM APIs.
 
 [https://infermatic.ai/for-people/](https://infermatic.ai/for-people/)
@@ -383,7 +433,7 @@ Once you have the VPN up and running you can already connect remotely through yo
 
 For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.com/kb/1153/enabling-https) and a piece of software called a [reverse proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) ([NginX](https://www.nginx.com/) is among many other things a reverse proxy), which basically will translate the raw unencrypted data to securely access your services as if you were locally accessing them.
 
-The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem, Tailscale provides a [very basic implementation of a DNS server](https://tailscale.com/kb/1081/magicdns#enabling-magicdns) that may or may not work for your setup, so we will disable it and use an external DNS provider, [Cloudflare](https://dash.cloudflare.com/login) in our case (you can also locally host a DNS server). To disable Tailscale MagicDNS [go to the admin dashboard > dns tab and disable magicDNS](https://login.tailscale.com/admin/dns), while we are here, add Cloudflare’s public DNS servers (1.1.1.1 & 1.0.0.1) and check ‘override local dns’. 
+The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem, Tailscale provides a [very basic implementation of a DNS server](https://tailscale.com/kb/1081/magicdns#enabling-magicdns) that may or may not work for your setup, so we will disable it and use an external DNS provider, [Cloudflare](https://dash.cloudflare.com/login) in our case (you can also locally host a DNS server). To disable Tailscale MagicDNS [go to the admin dashboard > dns tab and disable magicDNS](https://login.tailscale.com/admin/dns), while we are here, add Cloudflare’s public DNS servers (1.1.1.1 & 1.0.0.1) and check ‘override local dns’. Also add cloudflare’s DNS servers that got assigned to your domain and add them as split dns for that domain.
 
 ![1](images/cloudflareonts.png "image_tooltip")
 
@@ -422,6 +472,6 @@ At this point you can securely connect to SillyTavern from anywhere with all the
 3. Links for guides for prompt engineering for general purpose and different bot making guides.
 4. List of different settings/tips for some tested models and suggestions for some use cases.
 5. Some tips about samplers and convergence in diffusion models
-6. Add text to sound(suno.ai) and text2video([https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)) models & services
+6. Add text2video([https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)) models & services
 7. Best setup for RAG & web search (still trying things out)
 8. More about quantization
