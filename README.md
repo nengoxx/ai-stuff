@@ -4,7 +4,7 @@
 
 [https://en.wikipedia.org/wiki/Large_language_model](https://en.wikipedia.org/wiki/Large_language_model)
 
-**_Diffusion Model_** - Image generation models that apply noise to an image and use a neural network to denoise it (Stable diffusion, Dall-e), it’s a complex topic but, TLDR: depending on the sampler and parameters used the image won't necessarily converge. Note that those models can (and should) also receive a text input to guide the denoising.
+**_Diffusion Model_** - Image generation models that apply noise to an image and use a neural network to denoise it (Stable diffusion, Dall-e), it’s a complex topic but, TLDR: depending on the sampler and parameters used the image won't necessarily converge in a singular image. Note that those models can (and should) also receive a text input to guide the denoising.
 
 [https://arxiv.org/html/2312.14977v1](https://arxiv.org/html/2312.14977v1)
 
@@ -68,6 +68,8 @@ Prompts can become complex and some can try to force the LLM to behave in certai
     * [Anthropic](https://www.anthropic.com/)’s new LLM, apparently the only real competition GPT-4 has besides mistral-large. Couple variants, and the smaller models are decently smart and affordable through API.
 * [LLama2](https://huggingface.co/chat/): 
     * [Meta](https://llama.meta.com/)’s open sourced model, it’s starting to show its age with the release of mistral/mixtral based models.
+* [Llama3](https://huggingface.co/meta-llama/Meta-Llama-3-8B):
+    * New models(8B/70B) from Meta, pretty good.
 * [Mistral-7b](https://huggingface.co/chat/): 
     * Small and decently smart open source model developed by [mistral.ai](https://mistral.ai), fits on consumer hardware, it’s actually very smart for its size and has a ton of community variants and flavors for many use cases.
 * [Mixtral-8x7b](https://huggingface.co/chat/): 
@@ -96,16 +98,18 @@ Some mixes and pre-trained models that I used(in exllama/kobold.cpp) and perform
 * [01-ai/Yi-9B-200K](https://huggingface.co/01-ai/Yi-9B-200K) - 200k context and apparently good at coding(probably not comparable to much bigger models, haven't tried it yet). You’ll need a lot of VRAM for the full context.
 * [senseable/WestLake-7B-v2](https://huggingface.co/senseable/WestLake-7B-v2) - Roleplay/Chat. Needs 5bpw quantization to fit on 12GB with full context.
 * [froggeric/WestLake-10.7B-v2-GGUF](https://huggingface.co/froggeric/WestLake-10.7B-v2-GGUF) - Pretty new, more creative/less instruction following than WestLake-7B-v2. Needs 4bpw(or less) to fit on 12GB.
-* [SanjiWatsuki/Kunoichi-DPO-v2-7B](https://huggingface.co/SanjiWatsuki/Kunoichi-DPO-v2-7B) - One of the best for RP below 20B(allegedly). Fits at 8bpw quant with the full 8k context.
-* [Sao10K/Fimbulvetr-11B-v2-GGUF](https://huggingface.co/Sao10K/Fimbulvetr-11B-v2-GGUF) - The other one of the best for RP below 20B(allegedly). Only 4k context tho, fits at 6bpw on 12GB.
-* [KoboldAI/LLaMA2-13B-Psyfighter2-GGUF](https://huggingface.co/KoboldAI/LLaMA2-13B-Psyfighter2-GGUF) - Pretty good for RP but comparable to lower sized models available. 13B are harder to fit in 12GB.
+* [SanjiWatsuki/Kunoichi-DPO-v2-7B](https://huggingface.co/SanjiWatsuki/Kunoichi-DPO-v2-7B) - One of the best for RP/Chat below 20B(allegedly). Fits at 8bpw quant with the full 8k context.
+* [Sao10K/Fimbulvetr-11B-v2-GGUF](https://huggingface.co/Sao10K/Fimbulvetr-11B-v2-GGUF) - The other one of the best for RP/Chat below 20B(allegedly). Only 4k context tho, fits at 6bpw on 12GB.
+* [Llama 3](https://huggingface.co/meta-llama/Meta-Llama-3-8B) - Very smart.
+* [Sao10K/L3-8B-Stheno-v3.1](https://huggingface.co/Sao10K/L3-8B-Stheno-v3.1) - Good Llama3 finetune for RP.
+* [KoboldAI/LLaMA2-13B-Psyfighter2-GGUF](https://huggingface.co/KoboldAI/LLaMA2-13B-Psyfighter2-GGUF) - Pretty good for RP/Chat but comparable to lower sized models available. 13B are harder to fit in 12GB.
 
 Bigger models (+12GB VRAM needed):
 
 
 
 * [mistralai/Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1) - Pretty smart.
-* [NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3](https://huggingface.co/NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3) - [NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss](https://huggingface.co/NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss) - Mixtral but for RP, can get repetitive and needs a bit of careful prompting.
+* [NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3](https://huggingface.co/NeverSleep/Noromaid-v0.1-mixtral-8x7b-Instruct-v3) - [NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss](https://huggingface.co/NeverSleep/Noromaid-v0.4-Mixtral-Instruct-8x7b-Zloss) - Mixtral but for RP/Chat, can get repetitive and needs a bit of careful prompting.
 
 More models: [https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
 
@@ -158,7 +162,7 @@ Anime:
 
 
 * [https://civitai.com/models/260267/animagine-xl-v31](https://civitai.com/models/260267/animagine-xl-v31) - Based on SDXL, great composition.
-* [https://civitai.com/models/317902/t-ponynai3](https://civitai.com/models/317902/t-ponynai3) - Based on [Pony](https://civitai.com/models/257749/pony-diffusion-v6-xl) & [NAI3](https://docs.novelai.net/image.html). Good composition, better faces/expressions. Large prompts require lowering CFG to avoid artifacts/saturation.
+* [https://civitai.com/models/317902/t-ponynai3](https://civitai.com/models/317902/t-ponynai3) - Based on [Pony](https://civitai.com/models/257749/pony-diffusion-v6-xl) & [NAI3](https://docs.novelai.net/image.html). Good composition, better faces/expressions. Large prompts require lowering CFG to avoid artifacts/saturation. 
 * [https://civitai.com/models/4468/counterfeit-v30](https://civitai.com/models/4468/counterfeit-v30) - Based on SD 1.5, great composition.
 * [https://civitai.com/models/27259/tmnd-mix](https://civitai.com/models/27259/tmnd-mix) - Based on SD 1.5, cutest waifus & cute style at low sampling steps.
 
@@ -231,6 +235,22 @@ For a frontend solution: Oobabooga for general tasks, RAG & web search or SillyT
 
 Personally I use either Oobabooga’s both for the API server and the UI, or just TabbyAPI with ST depending on my use case. It’s also the easiest setup since the ST scripts lets you install everything you need and more.
 
+**Some Videos about SillyTavern and it’s capabilities:**
+
+Step by step: 
+
+1.[ https://www.youtube.com/watch?v=M1mOhXwI97s](https://www.youtube.com/watch?v=M1mOhXwI97s) 
+
+2.[ https://youtu.be/xYtXonP8SK0](https://www.youtube.com/watch?v=xYtXonP8SK0) 
+
+3.[ https://youtu.be/WRTWyPXYotE](https://www.youtube.com/watch?v=WRTWyPXYotE) 
+
+4.[ https://youtu.be/d5XFO_l_3wA](https://www.youtube.com/watch?v=d5XFO_l_3wA) 
+
+5.[ https://www.youtube.com/watch?v=0R-SUd_KJ6A](https://www.youtube.com/watch?v=0R-SUd_KJ6A) 
+
+6.[ https://youtu.be/XiDFBNqdoc4](https://www.youtube.com/watch?v=XiDFBNqdoc4)
+
 
 ### Image Generation
 
@@ -239,7 +259,7 @@ Personally I use either Oobabooga’s both for the API server and the UI, or jus
 * [Automatic1111’s stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui): 
     * The most popular solution for running SD and adjacent models, extremely versatile with tons of extensions, even has an extension to use it in Photoshop. Using ‘--xformers’ is not needed.
 * [lllyasviel’s stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge):
-    * Built on top of A1111’s for better performance and compatibility with hardware. It’s a 10-20% speed up with recommended settings compared to A1111’s. Using ‘–xformers’ is not recommended.
+    * Built on top of A1111’s for better performance and compatibility with hardware. It’s a 10-20% speed up with recommended settings compared to A1111’s, also better memory management. Using ‘–xformers’ is not recommended.
 * [ConfyUI](https://github.com/comfyanonymous/ComfyUI):
     * Better workflow and more lightweight than A1111’s but less popular and versatile, A1111’s also has an extension for it.
 
@@ -256,6 +276,8 @@ Personally I just use stable-diffusion-webui-forge, do not enable ‘–xformers
 
 * Daswer123’s [xtts-webui](https://github.com/daswer123/xtts-webui) & [xtts-api-server](https://github.com/daswer123/xtts-api-server): 
     * You can use and finetune the model with the web UI or connect with SillyTavern to the API server.
+* Erew123’s [alltalk_tts](https://github.com/erew123/alltalk_tts): 
+    * XTTSv2 webui, can work as standalone with an API endpoint. Can also finetune and is very versatile as it supports several configurations.
 * [Suno.ai’s Bark](https://github.com/suno-ai/bark/tree/main):
     * Can do text2sound from the terminal.
 
@@ -279,7 +301,7 @@ For text inference a 12GB+ GPU is advised if you plan to run anything more than 
 * Exllama can fit up to 11b models with 8k context on 12GB. Supports multiple GPU configurations and it’s pretty fast. It can also run 13b models with low quantization and low context.
 * Llama.cpp can fit bigger models if layers of the LLM are offloaded to RAM but the inference speed takes a big hit. Anything beyond 30b is probably not feasible on a 12GB GPU. You’ll have to play around with the amount of layers offloaded as it depends on the context size too.
 
-For Stable Diffusion 8-12 GB is advised, heavily depending on batch size/image size. There are ways to lower the VRAM requirements but you need specific ways to generate images in small chunks.
+For Stable Diffusion 6-12 GB is advised, heavily depending on batch size/image size. There are ways to lower the VRAM requirements but you need the forge-webui version or specific ways to generate images in small chunks.
 
 For text2speech with XTTSv2 you only need around 3.5-5GB VRAM. Altho you can use RAM and the intel deepspeed library, the inference will take around 2-3 times.
 
@@ -312,7 +334,7 @@ There is a lot to prompt engineering for both professional and entertainment use
 
 This section can get very convoluted as storytelling and literary writing is a complex thing for LLMs (even for humans) and heavily depends on the model used, also the large context windows that are used in this use case affect the responses a lot. A rule of the thumb is to think about the models as what they are, text completion mechanisms, and for example if you let the writing style get dull over time, the context that you provide will be that same dull chat history and the model will provide a similar response, degrading the quality quickly, same for the repetition issues and such. Multiple character scenarios can also present a challenge for smaller models.
 
-There are several ways to instruct a model about performing as a character, some of them consider the fact that those models often are trained with code, and so they use some JSONish or List (Boostyle/W++/Plists) formatting, others try to enforce the writing style of the bot with examples (Ali:chat).
+There are several ways to instruct a model about performing as a character, some of them consider that those models often are trained with code, and so they use some JSONish or List (Boostyle/W++/Plists) formatting, others try to enforce the writing style of the bot with examples (Ali:chat).
 
 [https://rentry.co/statuotw](https://rentry.co/statuotw) - Mainly for Mythomax (LLama2 base).
 
@@ -405,11 +427,13 @@ There are several ways to instruct a model about performing as a character, some
 ## Specific Guides & Setups
 
 
-### Building an all in one solution to connect from anywhere with all the services(WIP)
+### Building an all in one solution to connect from anywhere with all the services(WIP, also there are better options built-in now)
 
 	
 
-The idea is to build a server side API endpoint with either Kobold.cpp or Oobabooga’s webui with SillyTavern as your UI to use remotely. We will need all the corresponding software and their dependencies on the computer you’re planning to use. In addition we will need several software to ensure a secure connection is available, there are several ways to achieve this and some might be better than others but I’m going to show the configuration I had (which isn't a professional solution but works well for personal use). I will assume you already set up the corresponding software for local use, launching the inference server with the ‘–api’ arguments and all that jazz (no need to use ‘–listen’ for all addresses, we will use the reverse proxy for accessing the server).
+The idea is to build a server side API endpoint with either Kobold.cpp or Oobabooga’s webui with SillyTavern as your UI to use remotely via voice input. We will need all the corresponding software and their dependencies on the computer you’re planning to use. In addition we will need several software to ensure a secure connection is available, there are several ways to achieve this and some might be better than others but I’m going to show the configuration I had before (which isn't a professional solution but works well for personal use).
+
+We will assume you already set up the corresponding software for local use, launching the inference server with the ‘–api’ arguments and all the services (no need to use ‘–listen’ for all addresses, we will use the reverse proxy for accessing the server).
 
 We will need to setup a reverse proxy in order to route the requests to the specific port for each service, such as the API endpoint of the Inference server, both for stable diffusion & oobaboga’s default port is 7860 so you’ll have to change one if you plan to use them in the same machine. For reference, these are the default ports for each software we’re gonna use:
 
@@ -435,7 +459,7 @@ For that problem we will use [Tailscale’s HTTPS solution](https://tailscale.co
 
 The first step is to follow [Tailscale documentation and enable HTTPS](https://tailscale.com/kb/1153/enabling-https), then create the certificates for each machine you want to connect to and save them with the command [tailscale cert](https://tailscale.com/blog/tls-certs). Once you have that setup we encounter a different problem, Tailscale provides a [very basic implementation of a DNS server](https://tailscale.com/kb/1081/magicdns#enabling-magicdns) that may or may not work for your setup, so we will disable it and use an external DNS provider, [Cloudflare](https://dash.cloudflare.com/login) in our case (you can also locally host a DNS server). To disable Tailscale MagicDNS [go to the admin dashboard > dns tab and disable magicDNS](https://login.tailscale.com/admin/dns), while we are here, add Cloudflare’s public DNS servers (1.1.1.1 & 1.0.0.1) and check ‘override local dns’. Also add cloudflare’s DNS servers that got assigned to your domain and add them as split dns for that domain.
 
-![1](images/cloudflareonts.png "image_tooltip")
+![alt_text](images/cloudflareonts.png "image_tooltip")
 
 
 The next step would be to add your domain/website in [Cloudflare’s dashboard](https://dash.cloudflare.com), the address should be the one Tailscale gave you when you enabled HTTPS (something like [dom-ain.ts.net](dom-ain.ts.net)), and add the DNS records pointing to the Tailscale address of your server (the 100.x.x.x IP), when adding the DNS records disable the proxying and just use the DNS service. You don’t need to add all your services, just point to the server and the reverse proxy will do the rest. Note that in order to claim the domain, you need to change your router's default DNS to the ones that cloudflare provided when you created the DNS records(at the bottom of the page), you can use the public DNS servers but [you’ll need to re-add the domain every month or so](https://developers.cloudflare.com/dns/zone-setups/troubleshooting/domain-deleted/).
@@ -463,6 +487,11 @@ Note that if you can't validate your domain in Cloudflare you’re gonna have to
 At this point you can securely connect to SillyTavern from anywhere with all the services working as intended remotely.
 
 
+## Specific settings & tips
+
+**tPonynai3** - As wild as the dataset for the base model is, this is still one of the best models for anime. The prompting can get difficult since it seems to be sensitive to large prompts(or embeddings) and also very sensitive to positioning inside the prompt. You will notice saturation at higher token prompts
+
+
 ## ToDo & WIP
 
 
@@ -471,7 +500,7 @@ At this point you can securely connect to SillyTavern from anywhere with all the
 2. Links for popular web chatbot/ui services(some of them offer an API endpoint for a popular model, or a custom fine tuned model like character.ai and such)
 3. Links for guides for prompt engineering for general purpose and different bot making guides.
 4. List of different settings/tips for some tested models and suggestions for some use cases.
-5. Some tips about samplers and convergence in diffusion models
+5. More about samplers and convergence in diffusion models
 6. Add text2video([https://runwayml.com/ai-tools/gen-2/](https://runwayml.com/ai-tools/gen-2/)) models & services
 7. Best setup for RAG & web search (still trying things out)
 8. More about quantization
