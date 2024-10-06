@@ -117,7 +117,7 @@ I do not recommend using the interrupt functionality, since the mic doesn't clos
 
 ## Remote Use
 
-To use remotely, I set up a Tailscale VPN + Fennec(firefox fork) on adnroid, with the flag 'media.devices.insecure.enabled' set to True. Obviously, setting up SSL with a reverse proxy would be the better option.
+To use remotely, I set up a Tailscale VPN + Fennec(firefox fork) on android, with the flag 'media.devices.insecure.enabled' set to True. Obviously, setting up SSL with a reverse proxy would be the better option.
 
 ## Web Search
 
