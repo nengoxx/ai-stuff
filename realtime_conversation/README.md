@@ -115,6 +115,10 @@ And enable auto send & playback:
 
 I do not recommend using the interrupt functionality, since the mic doesn't close when the character is responding, and that would trigger it.
 
+## Remote Use
+
+To use remotely, I set up a Tailscale VPN + Fennec(firefox fork) on adnroid, with the flag 'media.devices.insecure.enabled' set to True. Obviously, setting up SSL with a reverse proxy would be the better option.
+
 ## Web Search
 
 To add web search functionality, follow the steps to install Searxng on docker: 
