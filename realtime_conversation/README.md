@@ -113,6 +113,8 @@ And enable auto send & playback:
 
 ![Screenshot 2024-10-06 185739.png](Screenshot_2024-10-06_185739.png)
 
+I do not recommend using the interrupt functionality, since the mic doesn't close when the character is responding, and that would trigger it.
+
 ## Web Search
 
 To add web search functionality, follow the steps to install Searxng on docker: 
