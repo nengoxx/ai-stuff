@@ -1,4 +1,4 @@
-# speech-to-speech realtime conversation setup
+# Speech-to-speech realtime conversation setup
 
 ## Software used
 
