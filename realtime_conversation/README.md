@@ -66,7 +66,7 @@ cmd /k
 
 Now in order to use faster-whisper on GPU, we need to start it with the environment variable ‘USE_CUDA_DOCKER=True’.
 
-I recommend the model ‘large-v2’, but you can use any of the following:
+I recommend the model ‘large-v2’ to minimize hallucinations, but you can use any of the following:
 
 tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large-v1, large-v2, large-v3, large, distil-large-v2, distil-medium.en, distil-small.en, distil-large-v3
 
@@ -81,7 +81,7 @@ set USE_CUDA_DOCKER=True
 open-webui serve
 ```
 
-In order to further reduce hallucinations while transcribing with whisper, I recommend editing the code from the ‘.venv\Lib\site-packages\open_webui\apps\audio\main.py’ file.
+In order to further reduce hallucinations while transcribing with whisper, I recommend editing the code from the ‘venv\Lib\site-packages\open_webui\apps\audio\main.py’ file.
 
 At line 408, you should see something like this:
 
