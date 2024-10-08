@@ -113,7 +113,9 @@ And enable auto send & playback:
 
 ![Screenshot 2024-10-06 185739.png](Screenshot_2024-10-06_185739.png)
 
-I do not recommend using the interrupt functionality, since the mic doesn't close when the character is responding, and that would trigger it.
+**I do not recommend using the interrupt functionality, since the mic doesn't close when the bot is responding, and that would trigger it.**
+
+**Because of the open mic issue when the bot responds, I also suggest using headphones so the TTS doesnt get caught in the mic recording**
 
 ## Remote Use
 
