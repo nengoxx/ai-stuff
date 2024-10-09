@@ -109,7 +109,7 @@ Finally, enable streaming for the model in the **user settings**:
 
 ![Screenshot 2024-10-06 185903.png](Screenshot_2024-10-06_185903.png)
 
-And enable auto send & playback:
+And enable auto send & playback(not needed for the call functionality):
 
 ![Screenshot 2024-10-06 185739.png](Screenshot_2024-10-06_185739.png)
 
