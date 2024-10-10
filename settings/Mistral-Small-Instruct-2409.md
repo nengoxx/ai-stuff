@@ -4,6 +4,7 @@
 It's a 22B parameter model, but fits at a decent quantization.
 
 **IQ3_XS** - 8k context / 16k context with --quantkv 2
+
 **IQ3_M** - 8k context with --quantkv 1
 
 ```bash
