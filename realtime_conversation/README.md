@@ -117,13 +117,17 @@ And enable auto send & playback(not needed for the call functionality):
 
 **Because of the open mic issue when the bot responds, I also suggest using headphones so the TTS doesnt get caught in the mic recording**
 
+## Whisper v3 Turbo
+
+You can use this model [[https://huggingface.co/deepdml/faster-whisper-large-v3-turbo-ct2](https://huggingface.co/deepdml/faster-whisper-large-v3-turbo-ct2)] and replace any of the default ones downloaded in 'venv\Lib\site-packages\open_webui\data\cache\whisper\models' with it.
+
 ## Remote Use
 
 To use remotely, I set up a Tailscale VPN + Fennec(firefox fork) on android, with the flag 'media.devices.insecure.enabled' set to True. Obviously, setting up SSL with a reverse proxy would be the better option.
 
 ## Web Search
 
-To add web search functionality, follow the steps to install Searxng on docker: 
+To add web search functionality, follow the steps to install Searxng on docker:
 
 [[https://docs.openwebui.com/tutorials/features/web_search](https://docs.openwebui.com/tutorials/features/web_search)]
 
