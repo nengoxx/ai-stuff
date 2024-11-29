@@ -125,6 +125,10 @@ You can use this model [[https://huggingface.co/deepdml/faster-whisper-large-v3-
 
 To use remotely, I set up a Tailscale VPN + Fennec(firefox fork) on android, with the flag 'media.devices.insecure.enabled' set to True. Obviously, setting up SSL with a reverse proxy would be the better option.
 
+## Minimizing Latency
+
+Tailscale can use relay servers instead of direct connections, in which case you might want to set some rules on your server's firewall for outgoing connections: [[https://tailscale.com/kb/1082/firewall-ports?q=41641%3A](What firewall ports should I open to use Tailscale?)]
+
 ## Web Search
 
 To add web search functionality, follow the steps to install Searxng on docker:
