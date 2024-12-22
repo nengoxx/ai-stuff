@@ -83,7 +83,7 @@ open-webui serve
 
 In order to further reduce hallucinations while transcribing with whisper, I recommend editing the code from the ‘venv\Lib\site-packages\open_webui\apps\audio\main.py’ file.
 
-At line 408, you should see something like this:
+At line 470, you should see something like this:
 
 ```bash
 segments, info = model.transcribe(file_path, beam_size=5)
