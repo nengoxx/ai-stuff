@@ -2,7 +2,7 @@
 
 ## Realtime conversation
 
-Guide to install and configure the realtime conversation feature for Open WebUI with minimal latency.
+Guide to install and configure the realtime conversation feature for Open WebUI with minimal latency. Also with the web search functioanlity and the new whisper-turbo model.
 
 ## Context Limit
 
