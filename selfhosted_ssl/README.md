@@ -1,4 +1,4 @@
-# Building an all in one solution to connect from anywhere with all the services(WIP, also there are better options built-in now)
+# Building an all in one solution to connect from anywhere with all the services(WIP, also there are better options built-in at the moment)
 
 	
 

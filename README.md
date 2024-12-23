@@ -1,6 +1,9 @@
-WIP, it's pretty outdated.
+# Check the folders for settings, projects and specific guides
+
+WIP, it's hard to keep up with everything.
 
 ## Concepts & Definitions
+
 These aren't official definitions, just a general way to introduce them.
 
 **_LLM (Large Language Model)_** - Refers to the neural network (a type of model inspired on the human brain) used for natural language, such as text2text generation(gpt-4), text classification or sentiment analysis(BERT). The main idea behind it is a text completion mechanism with high accuracy (ideally) for predicting the next word or set of words in a given context.
