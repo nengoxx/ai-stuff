@@ -66,7 +66,7 @@ Add inside /chat/completions route, at line 605:
     
     #print(json.dumps(api_config, indent=2))
 
-    max_tokens = api_config.get("max_context_tokens", 8192)  # Hardcoded limit
+    max_tokens = api_config.get("max_context_tokens", 12288)  # Hardcoded limit
     if "messages" in payload:
         payload["messages"] = trim_context(payload["messages"], payload["model"], max_tokens)
 

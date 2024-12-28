@@ -11,4 +11,4 @@ Update: from 0.5 onwards the files have been refactored and moved around, this i
 
 ### openai/main.py
 
-- Hard coded a context limit (8k) to prevent the whole chat to be sent to external/paid APIs. This is obviously not ideal but in longer chats, it will let you use Groq's API (15k limit), as well as models with less effective context length, and save you money in paid APIs.
+- Hard coded a context limit (12k) to prevent the whole chat to be sent to external/paid APIs. This is obviously not ideal but in longer chats, it will let you use Groq's API (15k limit), as well as models with less effective context length, and save you money in paid APIs.

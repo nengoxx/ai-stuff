@@ -34,7 +34,7 @@ def trim_context(messages, model, max_tokens):
 Then inside the /chat/completions route:
 
 ```python
-max_tokens = api_config.get("max_context_tokens", 8192)  #Hardcoded max tokens.
+max_tokens = api_config.get("max_context_tokens", 12288)  #Hardcoded max tokens.
 if "messages" in payload:
   payload["messages"] = trim_context(payload["messages"], payload["model"], max_tokens)
 ```
