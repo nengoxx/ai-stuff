@@ -8,6 +8,10 @@ Guide to install and configure the realtime conversation feature for Open WebUI 
 
 Tweaks to cap the context sent to non-ollama APIs.
 
-## apps
+## routers
 
-Tweaks and edits to the specified source files (inside open-webui's apps folder) for several functionalities.
+Updated (post 0.5) tweaks and edits to the specified source files (inside open-webui/routers folder) for several functionalities.
+
+## apps(pre 0.5)
+
+Tweaks and edits to the specified source files (inside open-webui/apps folder) for several functionalities.

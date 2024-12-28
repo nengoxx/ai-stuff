@@ -1,4 +1,4 @@
-# Enable context limit for external APIs
+# Enable context limit for external APIs (pre 0.5, updated version in routers folder)
 
 ## Editing the open-webui/apps/openai/main.py file
 
