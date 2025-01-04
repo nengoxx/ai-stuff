@@ -27,7 +27,9 @@ intfloat/multilingual-e5-large-instruct : 500M
 intfloat/e5-large-v2 : 300M
 sentence-transformers/all-mpnet-base-v2 : 100M
 
-google's text-embeddings-004 : Probably the best, not local tho.
+google's text-embeddings-004 : Very good, not local tho.
+google's text-embedding-005 : ??
+google's text-multilingual-embedding-002 : ??
 
 ### Reranking Models
 
