@@ -6,7 +6,9 @@ From 0.5 onwards the files have been refactored and moved around
 
 Only add the code between '###################################################################'
 
-### audio.py
+## audio.py
+
+### Remove hallucinations
 
 - Set the language for local transcriptions to English to prevent cross-language hallucinations.
 - Added the VAD (voice activity detection) for local transcriptions to prevent annoying hallucinations like the usual "thanks you" and such.
@@ -17,9 +19,11 @@ Replace line 468:
 segments, info = model.transcribe(file_path, language="en", beam_size=5, vad_filter=True)
 ```
 
-### openai.py
+## openai.py
 
-- Hard coded a context limit (8k) to prevent the whole chat to be sent to external/paid APIs. This is obviously not ideal but in longer chats, it will let you use Groq's API (15k limit), as well as models with less effective context length, and save you money in paid APIs.
+### Add context length limit for external APIs
+
+- Hard coded a context limit (12k) to prevent the whole chat to be sent to external/paid APIs. This is obviously not ideal but in longer chats, it will let you use Groq's API (15k limit), as well as models with less effective context length, and save you money in paid APIs.
 
 Add at the top (ex. inside the Utility functions section):
 
