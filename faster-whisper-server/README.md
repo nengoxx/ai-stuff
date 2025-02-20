@@ -20,3 +20,5 @@ In order to fix this, you will need to install cudnn 9 for cuda 12. **If it does
 Replace the lines `vad_filter: Annotated[bool, Form()] = False,` with True.
 
 Additionally, you can add `beam_size=5,` to the transcribe function calls on that same file to enhance the quality of the transcription.
+
+Also change `language: Annotated[str | None, Form()] = "en"` to avoid cross language hallucinations.
